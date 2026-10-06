@@ -81,6 +81,36 @@ async def cmd_weather(message: types.Message):
     except Exception as e:
         await message.answer(f"Ошибка: {e}")
 
+@dp.message(Command("forecast"))
+async def cmd_forecast(message: types.Message):
+    user_id = message.from_user.id
+    city = get_city(user_id)
+
+    if not city:
+        await message.answer("Сначала установи город: /setcity Москва")
+        return
+
+    ur1 = f"http://api.openweathermap.org/data/2.5/forecast?q={city}&appid={WEATHER_API_KEY}&units=metric&lang=ru"
+
+    try:
+        response = requests.get(ur1)
+        data = response.json()
+
+        if data.get("cod") == "200":
+            forecast = data["list"]
+            await message.answer(f"🌤️ Прогноз на 5 дней для {city}:")
+
+            for i in range(0, 40, 8):
+                item = forecast[i]
+                date = item["dt_txt"].split()[0]
+                temp = item["main"]["temp"]
+                desc = item["weather"][0]["description"]
+                await message.answer(f"🗓️ {date}: {temp}°C, {desc}")
+        else:
+            await message.answer("Город не найден.")
+    except Exception as e:
+        await message.answer(f"Ошибка: {e}")
+
 async def main():
     print("Бот запущен!")
     await dp.start_polling(bot)
