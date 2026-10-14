@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Обратная связь</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #764ba2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Напишите нам</h1>
+    <form method="POST">
+        <p>
+            <input type="text" name="name" placeholder="Ваше имя" required>
+        </p>
+        <p>
+            <input type="email" name="email" placeholder="Ваш email" required>
+        </p>
+        <p>
+            <textarea name="message" placeholder="Сообщение" rows="5" required></textarea>
+        </p>
+        <button type="submit">Отправить</button>
+    </form>
+</body>
+</html>
