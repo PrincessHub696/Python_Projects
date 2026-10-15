@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мой блог</title>
+</head>
+<body>
+    <h1>Мой блог</h1>
+    <a href="/add">+ Добавить пост</a>
+    <hr>
+
+    {% for post in posts %}
+        <div>
+            <h2>{{ post[1] }}</h2>
+            <p>{{ post[2] }}</p>
+        </div>
+        <hr>
+    {% endfor %}
+</body>
+</html>
