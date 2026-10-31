@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Моё портфолио</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px; margin: 0 auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #f0f0f0;
+        }
+        h1 {
+            color: #800020;
+        }
+        .project {
+            background: #2a2a2a;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            border-left: 4px solid #800020;
+        }
+        a {
+            color: #b11b1b;
+        }
+        nav a {
+            margin-right: 15px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #800020;
+        }
+        nav a:hover {
+            color: #b11b1b;
+        }
+        hr {
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Главная</a>
+        <a href="/add">Добавить проект</a>
+        <a href="/contacts">Контакты</a>
+    </nav>
+    <hr>
+
+    <h1>Мои проекты</h1>
+
+    {% for project in projects %}
+        <div class="project">
+            <h2>{{ project[1] }}</h2>
+            <p>{{ project[2] }}</p>
+            <a href="{{ project[3] }}" target="_blank">Ссылка на проект</a>
+        </div>
+    {% endfor %}
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить проект</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #f0f0f0;
+        }
+        h1 { color: #800020; }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            background: #2a2a2a;
+            color: #f0f0f0;
+            border: 1px solid #444;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background: #b11b1b;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover { background: #ff4d4d; }
+        a {
+            color: #b11b1b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover { color: #ff4d4d;}
+    </style>
+</head>
+<body>
+    <h1>Добавить проект</h1>
+    <form method="POST">
+        <p><input type="text" name="title" placeholder="Название проекта" required></p>
+        <p><textarea name="description" placeholder="Описание" rows="4" required></textarea></p>
+        <p><input type="url" name="link" placeholder="Ссылка на GitHub" required></p>
+        <button type="submit">Добавить</button>
+    </form>
+    <br>
+    <a href="/">← Назад</a>
+</body>
+</html>
